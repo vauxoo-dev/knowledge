@@ -1,0 +1,286 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * document_page_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-07 23:01+0000\n"
+"PO-Revision-Date: 2016-06-07 23:01+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: document_page_report
+#: view:website:report.style
+msgid ".concept {\n"
+"                    display:inline;\n"
+"                    width:10%;\n"
+"                    float:left;\n"
+"                }"
+msgstr ".concept {\n"
+"                    display:inline;\n"
+"                    width:10%;\n"
+"                    float:left;\n"
+"                }"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "1. OBJECTIVE"
+msgstr "1. OBJETIVO"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "2. SCOPE"
+msgstr "2. ALCANCE"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "3. DEFINITIONS"
+msgstr "3. DEFINICIONES"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "4. RESPONSIBLE"
+msgstr "4. RESPONSABLES"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "5. PROCESS"
+msgstr "5. PROCEDIMIENTO"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "6. REFERENCES"
+msgstr "6. REFERENCIAS"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "7. ANNEXED"
+msgstr "7. ANEXOS"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "8. HISTORY"
+msgstr "8. HISTORIAL"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "Approved by"
+msgstr "Aprobado por"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "Activities / Development / Process"
+msgstr "Actividades / Desarrollo / Procedimiento"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "Annexed"
+msgstr "Anexos"
+
+#. module: document_page_report
+#: view:website:document_page_report.external_layout_header
+msgid "Approved by:"
+msgstr "Aprobado por:"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "CODE"
+msgstr "CÓDIGO"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "CONCEPTS TO INCLUDE IN EACH DOCUMENT:"
+msgstr "CONCEPTOS QUE DEBE CONTENER CADA DOCUMENTO:"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "Change Description"
+msgstr "Descripción del Cambio"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "Concept"
+msgstr "Concepto"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "DEFINITION OF CONCEPTS"
+msgstr "DEFINICIONES DE CONCEPTOS"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "DEPARTMENTS"
+msgstr "DEPARTMENTOS"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "DOCUMENT"
+msgstr "DOCUMENTO"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "DOCUMENTS CODE"
+msgstr "CODIGO DE DOCUMENTOS"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "Date"
+msgstr "Fecha"
+
+#. module: document_page_report
+#: view:website:document_page_report.external_layout_header
+msgid "Date of approval / last revision of document"
+msgstr "Fecha de aprobación / última revisión del documento"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "Definition"
+msgstr "Definición"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "Definitions"
+msgstr "Definiciones"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "Document"
+msgstr "Documento"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "Document Name"
+msgstr "Nombre del Documento"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "Document No."
+msgstr "No. Documento "
+
+#. module: document_page_report
+#: model:ir.actions.report.xml,name:document_page_report.knowledge_document_page_report
+msgid "Document Page"
+msgstr "Página del documento"
+
+#: view:website:document_page_report.document_page_report
+msgid "Equipment / Tools"
+msgstr "Equipo / Herramienta"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "Example"
+msgstr "Ejemplo"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "History"
+msgstr "Historial"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "No."
+msgstr "No."
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "Originator"
+msgstr "Originador"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "Objective"
+msgstr "Objetivo"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "PRODUCTS"
+msgstr "PRODUCTOS"
+
+#. module: document_page_report
+#: view:website:document_page_report.external_layout_header
+msgid "Page"
+msgstr "Pág."
+
+#. module: document_page_report
+#: view:website:document_page_report.external_layout_header
+msgid "Operating Procedure"
+msgstr "Procedimiento de Operación"
+
+#. module: document_page_report
+#: view:website:document_page_report.external_layout_header
+msgid "Processing and Document Control"
+msgstr "Elaboración y Control de Documentos"
+
+#. module: document_page_report
+#: view:website:document_page_report.external_layout_header
+msgid "Produced by:"
+msgstr "Elaborado por:"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "RESPONSIBLE FOR DEVELOPMENT, REVIEW AND APPROVAL OF DOCUMENTS."
+msgstr "RESPONSABLES DE ELABORACION, REVISION Y APROBACION DE DOCUMENTOS."
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "Reviser"
+msgstr "Revisor"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "References"
+msgstr "Referencias"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "Responsible"
+msgstr "Responsables"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+#: view:website:document_page_report.external_layout_header
+msgid "Review"
+msgstr "Revisión"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "Scope"
+msgstr "Alcance"
+
+#. module: document_page_report
+#: view:website:document_page_report.document_page_report
+msgid "WORK INSTRUCTIONS"
+msgstr "INSTRUCCIONES DE TRABAJO "
+
+#. module: document_page_report
+#: view:website:document_page_report.layout
+msgid "data_report_dpi if data_report_dpi else None"
+msgstr "data_report_dpi if data_report_dpi else None"
+
+#. module: document_page_report
+#: view:website:document_page_report.layout
+msgid "data_report_header_spacing if data_report_header_spacing else None"
+msgstr "data_report_header_spacing if data_report_header_spacing else None"
+
+#. module: document_page_report
+#: view:website:document_page_report.layout
+msgid "data_report_margin_top if data_report_margin_top else None"
+msgstr "data_report_margin_top if data_report_margin_top else None"
+
+#. module: document_page_report
+#: view:website:document_page_report.layout
+msgid "document_page_report.layout"
+msgstr "document_page_report.layout"
+
+#. module: document_page_report
+#: view:website:document_page_report.external_layout_header
+msgid "of"
+msgstr "de"
+
+

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <template id="document_page_report.layout" inherit_id="web.layout" primary="True">
+            <!-- Add report attributes -->
+            <xpath expr="//html" position="attributes">
+                <attribute name="t-att-data-report-margin-top">data_report_margin_top if data_report_margin_top else None</attribute>
+                <attribute name="t-att-data-report-header-spacing">data_report_header_spacing if data_report_header_spacing else None</attribute>
+                <attribute name="t-att-data-report-dpi">data_report_dpi if data_report_dpi else None</attribute>
+            </xpath>
+            <!-- Remove conflicting style -->
+            <xpath expr="//head/link[@href='/web/static/src/css/full.css']" position="replace"></xpath>
+        </template>
+
+        <template id="document_page_report.html_container">
+            <t t-set="body_classname" t-value="'container'"/>
+            <t t-call="document_page_report.layout">
+                <t t-raw="0"/>
+            </t>
+        </template>
+
+        <template id="document_page_report_styles" inherit_id="report.style">
+            <xpath expr=".">
+                <t>
+                .concept {
+                    display:inline;
+                    width:10%;
+                    float:left;
+                }
+                </t>
+            </xpath>
+        </template>
+
+        <template id="document_page_report.external_layout">
+            <!-- Multicompany -->
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id"></t>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"></t>
+            </t>
+            <t t-raw="0" />
+            <t t-call="document_page_report.external_layout_header"/>
+            <t t-call="document_page_report.external_layout_footer"/>
+        </template>
+
+        <template id="document_page_report.external_layout_header">
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id"></t>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"></t>
+            </t>
+            <t t-raw="0" />
+            <div class="header">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr class="row">
+                            <td class="col-xs-4" style="border: 1px solid black;">
+                                <img class="img img-responsive" t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" style="max-width: 150px;"/>
+                            </td>
+                            <td class="col-xs-4 text-center" style="border: 1px solid black;">
+                                <strong>Operating Procedure</strong><br/>
+                                <span t-raw="o.name"/>
+                            </td>
+                            <td class="col-xs-4" style="border: 1px solid black;">
+                                <strong>Produced by:</strong><span t-raw="o.create_uid.name or ''"/><br/>
+                                <strong>Approved by:</strong><span t-raw="o.approved_uid.name or ''"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="table">
+                        <tr class="row">
+                            <td class="col-xs-4 text-center" style="border: 1px solid black;vertical-align: middle;">
+                                <strong>Processing and Document Control</strong>
+                            </td>
+                            <td class="col-xs-1 text-center" style="border: 1px solid black;">
+                                <strong>Review</strong><br/>
+                                <span t-raw="get_qty_reviews(o)"/>
+                            </td>
+                            <td class="col-xs-5 text-center" style="border: 1px solid black;">
+                                <strong>Date of approval / last revision of document</strong><br/>
+                                <t t-if="o.approved_date">
+                                    <span t-field="o.approved_date" t-field-options='{"widget": "date"}'/>
+                                </t>
+                            </td>
+                            <td class="col-xs-2 text-center" style="border: 1px solid black;vertical-align: middle;">
+                                <strong>Page</strong> <span class="page"/> of <span class="topage"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </template>
+
+        <template id="document_page_report.external_layout_footer">
+            <div class="footer">
+            </div>
+        </template>
+    </data>
+</openerp>

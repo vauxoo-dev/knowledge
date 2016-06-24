@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <template id="document_page_report">
+            <t t-call="document_page_report.external_layout"/>
+            <div class="page">
+                <div class="row">
+                    <h4><strong>1. OBJECTIVE</strong></h4>
+                </div>
+                <div class="row">
+                    <h4><strong>2. SCOPE</strong></h4>
+                </div>
+                <div class="row">
+                    <h4><strong>3. DEFINITIONS</strong></h4>
+                </div>
+                <table class="table">
+                    <tr class="row active">
+                        <th class="col-xs-1" style="border: 1px solid black;">No.</th>
+                        <th class="col-xs-2" style="border: 1px solid black;">Concept</th>
+                        <th class="col-xs-9" style="border: 1px solid black;">Definition</th>
+                    </tr>
+                    <tr class="row">
+                        <td style="border: 1px solid black;">
+                        <span t-raw="get_qty_reviews(o)"/>
+                    </td>
+                        <td style="border: 1px solid black;"></td>
+                        <td style="border: 1px solid black;"></td>
+                    </tr>
+                </table>
+                <div class="row">
+                    <h4><strong>4. RESPONSIBLE</strong></h4>
+                </div>
+                <div class="row">
+                    <h4><strong>5. PROCESS</strong></h4>
+                </div>
+                <div class="row">
+                    <h4><strong>6. REFERENCES</strong></h4>
+                </div>
+                <table class="table">
+                    <tr class="row active">
+                        <th class="col-xs-1" style="border: 1px solid black;">No.</th>
+                        <th class="col-xs-2" style="border: 1px solid black;">Document No.</th>
+                        <th class="col-xs-9" style="border: 1px solid black;">Document Name</th>
+                    </tr>
+                    <tr class="row">
+                        <td style="border: 1px solid black;"></td>
+                        <td style="border: 1px solid black;"></td>
+                        <td style="border: 1px solid black;"></td>
+                    </tr>
+                </table>
+                <div class="row">
+                    <h4><strong>7. ANNEXED</strong></h4>
+                    <strong>CONCEPTS TO INCLUDE IN EACH DOCUMENT:</strong>
+                </div>
+                <div class="row text-center" style="border:1px solid black;font-size: 10px;">
+                    <div class="concept">Document</div>
+                    <div class="concept">Objective</div>
+                    <div class="concept">Scope</div>
+                    <div class="concept">Definitions</div>
+                    <div class="concept">Responsible</div>
+                    <div class="concept">Equipment / Tools</div>
+                    <div class="concept">Activities / Development / Process</div>
+                    <div class="concept">References</div>
+                    <div class="concept">Annexed</div>
+                    <div class="concept">History</div>
+                </div>
+                <div class="row">
+                    <strong>DEFINITION OF CONCEPTS</strong>
+                </div>
+                <table class="table">
+                    <tr class="row">
+                        <td class="col-xs-3" style="border: 1px solid black;"></td>
+                        <td class="col-xs-9" style="border: 1px solid black;"></td>
+                    </tr>
+                </table>
+                <div class="row">
+                    <strong>DOCUMENTS CODE</strong>
+                </div>
+                <table class="table">
+                    <tr class="row">
+                        <th class="col-xs-2" style="border: 1px solid black;">DOCUMENT</th>
+                        <th class="col-xs-7" style="border: 1px solid black;">CODE</th>
+                        <th class="col-xs-3" style="border: 1px solid black;">Example</th>
+                    </tr>
+                    <tr class="row">
+                        <td style="border: 1px solid black;"></td>
+                        <td style="border: 1px solid black;"></td>
+                        <td style="border: 1px solid black;"></td>
+                    </tr>
+                </table>
+                <table class="table">
+                    <tr class="row">
+                        <th class="col-xs-4" style="border: 1px solid black;">DEPARTMENTS</th>
+                        <th class="col-xs-4" style="border: 1px solid black;">WORK INSTRUCTIONS</th>
+                        <th class="col-xs-4" style="border: 1px solid black;">PRODUCTS</th>
+                    </tr>
+                    <tr class="row">
+                        <td style="border: 1px solid black;"></td>
+                        <td style="border: 1px solid black;"></td>
+                        <td style="border: 1px solid black;"></td>
+                    </tr>
+                </table>
+                <div class="row">
+                    <strong>RESPONSIBLE FOR DEVELOPMENT, REVIEW AND APPROVAL OF DOCUMENTS.</strong>
+                </div>
+                <table class="table">
+                    <tr class="row active">
+                        <th class="col-xs-3" style="border: 1px solid black;">Document</th>
+                        <th class="col-xs-3" style="border: 1px solid black;">Originator</th>
+                        <th class="col-xs-3" style="border: 1px solid black;">Reviser</th>
+                        <th class="col-xs-3" style="border: 1px solid black;">Approved by</th>
+                    </tr>
+                    <t t-foreach="o.history_ids" t-as="history">
+                        <t t-set="approvers" t-value="''"/>
+                        <t t-foreach="history.approver_item_ids" t-as="item">
+                            <t t-set="approvers" t-value="approvers and (approvers + ' / ' + item.user_id.name) or item.user_id.name"/>
+                        </t>
+                        <tr class="row">
+                            <td style="border: 1px solid black;"><span t-raw="o.name"/></td>
+                            <td style="border: 1px solid black;"><span t-raw="history.create_uid.name or ''"/></td>
+                            <td style="border: 1px solid black;"><span t-raw="history.approved_uid.name or ''"/></td>
+                            <td style="border: 1px solid black;"><span t-raw="approvers"/></td>
+                        </tr>
+                    </t>
+                </table>
+                <div class="row">
+                    <h4><strong>8. HISTORY</strong></h4>
+                </div>
+                <table class="table table">
+                    <tr class="row active">
+                        <th class="col-xs-2" style="border: 1px solid black;">Review</th>
+                        <th class="col-xs-7" style="border: 1px solid black;">Change Description</th>
+                        <th class="col-xs-3" style="border: 1px solid black;">Date</th>
+                    </tr>
+                    <tr class="row">
+                        <td style="border: 1px solid black;"></td>
+                        <td style="border: 1px solid black;"></td>
+                        <td style="border: 1px solid black;"></td>
+                    </tr>
+                </table>
+            </div>
+        </template>
+
+        <!-- Templates -->
+        <template id="page_report">
+            <t t-call="document_page_report.html_container">
+                <t t-foreach="doc_ids" t-as="doc_id">
+                    <t t-raw="translate_doc(doc_id, doc_model, 'write_uid.lang',
+                                            'document_page_report.document_page_report')"/>
+                </t>
+            </t>
+        </template>
+
+        <!-- Report action -->
+        <report
+            id="knowledge_document_page_report"
+            model="document.page"
+            name="document_page_report.page_report"
+            string="Document Page"
+            report_type="qweb-pdf"
+            multi="False"
+            />
+
+        <record id="document_page_report.knowledge_document_page_report" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="document_page_report.paperformat_document_page"/>
+        </record>
+
+    </data>
+</openerp>
