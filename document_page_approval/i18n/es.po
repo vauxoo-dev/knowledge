@@ -34,11 +34,19 @@ msgid ""
 msgstr "\n<p>Hola,</p>\n\n<p>La página \"${object.page_id.name}\" ha sido modificada y necesita tu aprobación.</p>\n\n<p>Puedes revisar la nueva versión aquí: <a href=\"${object.get_page_url}\">${object.get_page_url}</a></p>\n\n<p>Que tenga un buen día.<br/>\n--<br/>\nOdoo</p>\n            "
 
 #. module: document_page_approval
+#: help:document.page,history_state:0
+msgid "* Approved - If all histories of this document are approved.\n"
+"* Not all approved - If at least an history related to this document is not approved."
+msgstr "* Aprobado - Si todas las historias relacionadas a este documento están aprobadas.\n"
+"* No todo aprobado - Si al menos una de las historias relacionadas a este documento no ha sido aprobada."
+
+#. module: document_page_approval
 #: view:document.page.history:document_page_approval.wiki_history_form_inherit
 msgid "Approve"
 msgstr "Aprobar"
 
 #. module: document_page_approval
+#: selection:document.page,history_state:0
 #: selection:document.page.history,state:0
 msgid "Approved"
 msgstr "Aprobado"
@@ -76,6 +84,11 @@ msgid "Draft"
 msgstr "Borrador"
 
 #. module: document_page_approval
+#: field:document.page,history_state:0
+msgid "History state"
+msgstr "Estado Historias"
+
+#. module: document_page_approval
 #: model:email.template,subject:document_page_approval.email_template_new_draft_need_approval
 msgid "New version of \"${object.page_id.name}\" to approve"
 msgstr "Nueva versión de \"${object.page_id.name}\" para aprobar"
@@ -87,9 +100,19 @@ msgid "New version of the document %s approved."
 msgstr "Nueva versión del documento %s aprobada."
 
 #. module: document_page_approval
+#: selection:document.page,history_state:0
+msgid "Not all approved"
+msgstr "No todo aprobado"
+
+#. module: document_page_approval
 #: field:document.page,approval_required:0
 msgid "Require approval"
 msgstr "Requiere aprobación"
+
+#. module: document_page_approval
+#: field:document.page,history_approved:0
+msgid "Revision state"
+msgstr "Estado de revisión"
 
 #. module: document_page_approval
 #: field:document.page.history,state:0

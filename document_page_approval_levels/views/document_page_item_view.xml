@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="view_approver_document_page_items_tree" model="ir.ui.view">
+            <field name="name">view.approver.document.page.items.tree</field>
+            <field name="model">approver.document.page.item</field>
+            <field name="arch" type="xml">
+                <tree string="Approver Items">
+                    <field name="user_id"/>
+                    <field name="approved"/>
+                    <button icon="gtk-apply" name="approve" string="Approve" type="object" help="Click here if you are sure of approve, it will mark this as 'approved'" attrs="{'invisible': [('approved', '=', True)]}"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_approver_document_page_items_form" model="ir.ui.view">
+            <field name="name">view.approver.document.page.items.form</field>
+            <field name="model">approver.document.page.item</field>
+            <field name="arch" type="xml">
+                <form string="Approver Items">
+                    <header>
+                        <button icon="gtk-apply" name="approve" string="Approve" type="object" help="Click here if you are sure of approve, it will mark this as 'approved'" attrs="{'invisible': [('approved', '=', True)]}"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="approved" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_page_approver_items" model="ir.actions.act_window">
+            <field name="name">Approver Items</field>
+            <field name="res_model">approver.document.page.item</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_approver_document_page_items_tree"/>
+        </record>
+
+    </data>
+</openerp>

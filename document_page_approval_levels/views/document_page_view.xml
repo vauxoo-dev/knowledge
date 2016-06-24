@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="document_page_form_approver_inherit" model="ir.ui.view">
+            <field name="name">document.page.form.approver.inherit</field>
+            <field name="model">document.page</field>
+            <field name="inherit_id" ref="document_page.view_wiki_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='content']" position="after">
+                    <separator string="Approvers"/>
+                    <field name="approver_item_ids">
+                        <tree string="Approver Items" editable="bottom">
+                            <field name="user_id"/>
+                        </tree>
+                        <form string="Approver Items">
+                            <field name="user_id"/>
+                        </form>
+                    </field>
+                </xpath>
+            </field>
+        </record>
+
+        <menuitem name="Knowledge"
+            id="knowledge.menu_document"
+            groups="base.group_system,base.group_document_user"/>
+
+        <menuitem id="document_page.menu_category"
+            name="Categories"
+            sequence="20"
+            parent="document_page.menu_wiki"
+            action="document_page.action_category"
+            groups="document_page_approval_levels.group_document_approver"/>
+
+        <menuitem id="document_page.menu_page"
+            parent="document_page.menu_wiki"
+            groups="base.group_document_user"
+            name="Pages"
+            action="document_page.action_page"
+            sequence="10" />
+
+        <menuitem id="document_page.menu_page_history"
+            parent="document_page.menu_wiki"
+            name="Pages history"
+            action="document_page.action_history"
+            sequence="30"
+            groups="base.group_no_one,document_page_approval_levels.group_document_approver" />
+
+        <act_window
+            id="document_page.action_related_page_history"
+            context="{'search_default_page_id': [active_id], 'default_page_id': active_id}"
+            domain="[('page_id','=',active_id)]"
+            name="Page History"
+            res_model="document.page.history"
+            src_model="document.page"
+            groups="document_page_approval_levels.group_document_approver"/>
+
+        <menuitem name="Configuration" id="knowledge.menu_document_configuration"
+            parent="knowledge.menu_document" sequence="50"
+            groups="document_page_approval_levels.group_document_manager"/>
+
+    </data>
+</openerp>

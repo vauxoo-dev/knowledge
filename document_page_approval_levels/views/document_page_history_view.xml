@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="document_history_form_approver_inherit" model="ir.ui.view">
+            <field name="name">document.history.form.approver.inherit</field>
+            <field name="model">document.page.history</field>
+            <field name="inherit_id" ref="document_page.wiki_history_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='content']" position="after">
+                    <field name="to_approve_ok" invisible="1"/>
+                    <separator string="Approvers"/>
+                    <field name="approver_item_ids" readonly="True"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="document_history_form_approver_inherit_button" model="ir.ui.view">
+            <field name="name">document.history.form.approver.inherit.button</field>
+            <field name="model">document.page.history</field>
+            <field name="inherit_id" ref="document_page_approval.wiki_history_form_inherit"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='page_approval_approve']" position="attributes">
+                    <attribute name="attrs">{'invisible':['|', ('to_approve_ok', '=', False)]}</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

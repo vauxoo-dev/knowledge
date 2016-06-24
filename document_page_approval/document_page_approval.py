@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# coding: utf-8
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
@@ -22,7 +22,7 @@
 from datetime import datetime
 from openerp.tools.translate import _
 from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT
-from openerp import models, fields, SUPERUSER_ID
+from openerp import models, fields, SUPERUSER_ID, api
 
 
 class document_page_history_wkfl(models.Model):
@@ -245,6 +245,45 @@ class document_page_approval(models.Model):
             res = False
         return res
 
+    def _get_histories_state(self):
+        """If all document histories are in approved will return done, else
+        return blocked in the document"""
+        for document in self:
+            document.history_state = 'done'
+            if document.history_ids.filtered(lambda r: r.state != 'approved'):
+                document.history_state = 'blocked'
+
+    @api.depends('history_state')
+    def _get_histories_approved(self):
+        for page in self:
+            page.history_approved = False
+            if page.history_state == 'done':
+                page.history_approved = True
+
+    def search_history_approved(self, operator, value):
+        res = []
+        self._cr.execute(
+            '''
+            SELECT id
+            FROM document_page
+            WHERE id NOT IN (
+                SELECT distinct(page_id)
+                FROM document_page_history
+                WHERE page_id IS NOT NULL)
+            OR id IN (
+                SELECT distinct(page_id)
+                FROM document_page_history
+                WHERE state = 'approved' AND page_id not in (
+                    SELECT page_id
+                    FROM document_page_history
+                    WHERE state = 'draft' AND page_id IS NOT NULL)
+                );
+            ''')
+        res = self._cr.fetchall()
+        if operator == '=':
+            return [('id', 'in', res)]
+        return [('id', 'not in', res)]
+
     display_content = fields.Text(
         compute=_get_display_content,
         string='Displayed Content'
@@ -272,3 +311,18 @@ class document_page_approval(models.Model):
         "res.groups",
         "Approver group"
     )
+
+    history_state = fields.Selection(
+        compute=_get_histories_state,
+        selection=[
+            ('blocked', 'Not all approved'),
+            ('done', 'Approved')],
+        default='blocked',
+        help='* Approved - If all histories of this document are approved.\n'
+        '* Not all approved - If at least an history related to this document '
+        'is not approved.'
+    )
+
+    history_approved = fields.Boolean(
+        'Revision state', compute=_get_histories_approved,
+        search=search_history_approved)

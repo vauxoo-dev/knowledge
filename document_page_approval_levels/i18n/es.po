@@ -1,0 +1,202 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * document_page_approval_levels
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-01 18:58+0000\n"
+"PO-Revision-Date: 2016-06-01 18:58+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: document_page_approval_levels
+#: model:email.template,body_html:document_page_approval_levels.email_template_new_history_need_approval
+msgid "\n"
+"<p>New document to approve: <a href=\"${object.get_page_url}\">${object.get_page_url}</a></p>\n"
+"            "
+msgstr "\n"
+"<p>Nuevo documento para aprobar: <a href=\"${object.get_page_url}\">${object.get_page_url}</a></p>\n"
+"            "
+
+#. module: document_page_approval_levels
+#: model:email.template,subject:document_page_approval_levels.email_template_new_history_need_approval
+msgid "\"${object.page_id.name}\""
+msgstr "\"${object.page_id.name}\""
+
+#. module: document_page_approval_levels
+#: code:addons/document_page_approval_levels/models/document_page_history.py:58
+#, python-format
+msgid "<div>New document to approve.</div>"
+msgstr "<div>Nuevo documento para aprobar.</div>"
+
+#. module: document_page_approval_levels
+#: view:approver.document.page.item:document_page_approval_levels.view_approver_document_page_items_form
+#: view:approver.document.page.item:document_page_approval_levels.view_approver_document_page_items_tree
+msgid "Approve"
+msgstr "Aprobar"
+
+#. module: document_page_approval_levels
+#: field:approver.document.page.item,approved:0
+msgid "Approved"
+msgstr "Aprobado"
+
+#. module: document_page_approval_levels
+#: model:res.groups,name:document_page_approval_levels.group_document_approver
+msgid "Approver"
+msgstr "Aprobador"
+
+#. module: document_page_approval_levels
+#: view:approver.document.page.item:document_page_approval_levels.view_approver_document_page_items_form
+#: view:approver.document.page.item:document_page_approval_levels.view_approver_document_page_items_tree
+#: view:document.page:document_page_approval_levels.document_page_form_approver_inherit
+#: model:ir.actions.act_window,name:document_page_approval_levels.action_page_approver_items
+msgid "Approver Items"
+msgstr "Aprobadores"
+
+#. module: document_page_approval_levels
+#: field:document.page,approver_item_ids:0
+#: field:document.page.history,approver_item_ids:0
+msgid "Approver items"
+msgstr "Aprobadores"
+
+#. module: document_page_approval_levels
+#: view:document.page:document_page_approval_levels.document_page_form_approver_inherit
+#: view:document.page.history:document_page_approval_levels.document_history_form_approver_inherit
+msgid "Approvers"
+msgstr "Aprobadores"
+
+#. module: document_page_approval_levels
+#: view:approver.document.page.item:document_page_approval_levels.view_approver_document_page_items_form
+#: view:approver.document.page.item:document_page_approval_levels.view_approver_document_page_items_tree
+msgid "Click here if you are sure of approve, it will mark this as 'approved'"
+msgstr "Presiona aquí si estas seguro de aprobar, esto marcará el registro como 'Aprobado'"
+
+#. module: document_page_approval_levels
+#: field:approver.document.page.item,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: document_page_approval_levels
+#: field:approver.document.page.item,create_date:0
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: document_page_approval_levels
+#: field:approver.document.page.item,display_name:0
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: document_page_approval_levels
+#: field:approver.document.page.item,document_id:0
+msgid "Document"
+msgstr "Documento"
+
+#. module: document_page_approval_levels
+#: model:ir.model,name:document_page_approval_levels.model_document_page
+msgid "Document Page"
+msgstr "Página de documento"
+
+#. module: document_page_approval_levels
+#: model:ir.model,name:document_page_approval_levels.model_document_page_history
+msgid "Document Page History"
+msgstr "Historia de página de documento"
+
+#. module: document_page_approval_levels
+#: field:approver.document.page.item,history_id:0
+msgid "History"
+msgstr "Historia"
+
+#. module: document_page_approval_levels
+#: field:approver.document.page.item,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: document_page_approval_levels
+#: help:approver.document.page.item,approved:0
+msgid "Indicate if this item already was approved"
+msgstr "Indica si este registro ya fue aprobado"
+
+#. module: document_page_approval_levels
+#: code:addons/document_page_approval_levels/models/document_page_history.py:84
+#: code:addons/document_page_approval_levels/models/document_page_item.py:37
+#, python-format
+msgid "Invalid Action!"
+msgstr "Acción invalida!"
+
+#. module: document_page_approval_levels
+#: field:approver.document.page.item,__last_update:0
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: document_page_approval_levels
+#: field:approver.document.page.item,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: document_page_approval_levels
+#: field:approver.document.page.item,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización por"
+
+#. module: document_page_approval_levels
+#: code:addons/document_page_approval_levels/models/document_page_item.py:53
+#, python-format
+msgid "Only can assign an item by the same user by document."
+msgstr "Únicamente se puede asignar un registro para el mismo usuario por documento."
+
+#. module: document_page_approval_levels
+#: code:addons/document_page_approval_levels/models/document_page_item.py:35
+#, python-format
+msgid "Only the user assigned to this item can validate it."
+msgstr "Únicamente el usuario asignado al registro puede validarlo."
+
+#. module: document_page_approval_levels
+#: code:addons/document_page_approval_levels/models/document_page_history.py:84
+#, python-format
+msgid "Only users validators can edit the content in this history."
+msgstr "Solo los usuarios validadores pueden editar el contenido en esta historia."
+
+#. module: document_page_approval_levels
+#: field:document.page.history,to_approve_ok:0
+msgid "To approve ok"
+msgstr "Listo para aprobar"
+
+#. module: document_page_approval_levels
+#: model:ir.actions.server,name:document_page_approval_levels.update_approvers_action
+msgid "Update approvers in histories"
+msgstr "Actualizar aprobadores en las historias"
+
+#. module: document_page_approval_levels
+#: field:approver.document.page.item,user_id:0
+#: model:res.groups,name:document_page_approval_levels.group_document_user_limit
+msgid "User"
+msgstr "Usuario"
+
+#. module: document_page_approval_levels
+#: help:approver.document.page.item,user_id:0
+msgid "User of committee that need approve partially the histories generated from this page."
+msgstr "Usuario del comité que necesita aprobar parcialmente las historias generadas para esta página."
+
+
+#. module: document_page_approval_levels
+#: help:document.page.history,approver_item_ids:0
+msgid "Users and state in items that need partial approbation in this history"
+msgstr "Usuarios y estado de los registros que necesitan ser aprobados en esta historia"
+
+#. module: document_page_approval_levels
+#: help:document.page,approver_item_ids:0
+msgid "Users that partially approve the histories of this page."
+msgstr "Usuarios que parcialmente aprueban las historias de esta página."
+
+#. module: document_page_approval_levels
+#: view:document.page.history:document_page_approval_levels.document_history_form_approver_inherit_button
+msgid "{'invisible':['|', ('to_approve_ok', '=', False)]}"
+msgstr "{'invisible':['|', ('to_approve_ok', '=', False)]}"
+
+
