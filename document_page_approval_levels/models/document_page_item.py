@@ -41,7 +41,7 @@ class ApproverDocumentPageItem(models.Model):
                 '<div><b>The page has been approved by %s .</b></div>' %
                 item.user_id.name)
             item.history_id.page_id.message_post(
-                type='comment', body= _(msg))
+                type='comment', body=_(msg))
 
     @api.constrains('user_id', 'document_id')
     def _check_unique_user_document(self):
