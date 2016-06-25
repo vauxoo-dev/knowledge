@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="document_page_form_code_inherit" model="ir.ui.view">
+            <field name="name">document.page.form.code.inherit</field>
+            <field name="model">document.page</field>
+            <field name="inherit_id" ref="document_page.view_wiki_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="class">oe_inline</attribute>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="code" class="oe_inline" placeholder="Internal code"/> -
+                </xpath>
+            </field>
+        </record>
+
+        <record id="document_page_tree_code_inherit" model="ir.ui.view">
+            <field name="name">document.page.tree.code.inherit</field>
+            <field name="model">document.page</field>
+            <field name="inherit_id" ref="document_page.view_wiki_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="code"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="document_page_search_code_inherit" model="ir.ui.view">
+            <field name="name">document.page.search.code.inherit</field>
+            <field name="model">document.page</field>
+            <field name="inherit_id" ref="document_page.view_wiki_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='parent_id']" position="before">
+                    <field name="code"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
