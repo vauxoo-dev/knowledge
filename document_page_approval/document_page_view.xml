@@ -34,6 +34,9 @@
             <field name="inherit_id"
                    ref="document_page.view_wiki_form" />
             <field name="arch" type="xml">
+                <xpath expr="//field[@name='document_type']" position="after">
+                    <field name="revision"/>
+                </xpath>
                 <xpath expr="//page[@string='Body']" position="after">
                      <page string="Approval information">
                         <group colspan="2">
@@ -103,6 +106,7 @@
             <field name="inherit_id" ref="document_page.view_wiki_tree"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='name']" position="after">
+                    <field name="revision"/>
                     <field name="history_approved"/>
                 </xpath>
             </field>

@@ -1,22 +1,38 @@
 <?xml version="1.0"?>
 <openerp>
     <data>
+
         <record id="document_page_form_approver_inherit" model="ir.ui.view">
             <field name="name">document.page.form.approver.inherit</field>
             <field name="model">document.page</field>
             <field name="inherit_id" ref="document_page_approval.wiki_form_inherit"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='approved_date']" position="before">
-                    <group colspan="2">
-                        <field name="approver_item_ids">
-                            <tree string="Approver Items" editable="bottom">
-                                <field name="user_id"/>
+                    <field name="approver_item_ids">
+                        <tree string="Approver Items" editable="bottom">
+                            <field name="user_id"/>
+                        </tree>
+                        <form string="Approver Items">
+                            <field name="user_id"/>
+                        </form>
+                    </field>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="document_page_category_form_approver_inherit" model="ir.ui.view">
+            <field name="name">document.page.category.form.approver.inherit</field>
+            <field name="model">document.page</field>
+            <field name="inherit_id" ref="document_page.view_category_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@string='Documents']" position="after">
+                    <page string="Default Approvers">
+                        <field name="default_approver_ids" nolabel="1">
+                            <tree string="Default Approvers">
+                                <field name="name"/>
                             </tree>
-                            <form string="Approver Items">
-                                <field name="user_id"/>
-                            </form>
                         </field>
-                    </group>
+                    </page>
                 </xpath>
             </field>
         </record>

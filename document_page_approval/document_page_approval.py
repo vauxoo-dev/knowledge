@@ -284,6 +284,13 @@ class document_page_approval(models.Model):
             return [('id', 'in', res)]
         return [('id', 'not in', res)]
 
+    def _get_revision(self):
+        for page in self:
+            revision = []
+            [revision.append(history.id) for history in page.history_ids
+             if history.state == 'approved']
+            page.revision = len(revision)
+
     display_content = fields.Text(
         compute=_get_display_content,
         string='Displayed Content'
@@ -326,3 +333,8 @@ class document_page_approval(models.Model):
     history_approved = fields.Boolean(
         'Revision state', compute=_get_histories_approved,
         search=search_history_approved)
+
+    revision = fields.Integer(
+        string='Revision number',
+        compute='_get_revision',
+        readonly=True)
