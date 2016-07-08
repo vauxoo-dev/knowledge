@@ -4,18 +4,19 @@
         <record id="document_page_form_approver_inherit" model="ir.ui.view">
             <field name="name">document.page.form.approver.inherit</field>
             <field name="model">document.page</field>
-            <field name="inherit_id" ref="document_page.view_wiki_form"/>
+            <field name="inherit_id" ref="document_page_approval.wiki_form_inherit"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='content']" position="after">
-                    <separator string="Approvers"/>
-                    <field name="approver_item_ids">
-                        <tree string="Approver Items" editable="bottom">
-                            <field name="user_id"/>
-                        </tree>
-                        <form string="Approver Items">
-                            <field name="user_id"/>
-                        </form>
-                    </field>
+                <xpath expr="//field[@name='approved_date']" position="before">
+                    <group colspan="2">
+                        <field name="approver_item_ids">
+                            <tree string="Approver Items" editable="bottom">
+                                <field name="user_id"/>
+                            </tree>
+                            <form string="Approver Items">
+                                <field name="user_id"/>
+                            </form>
+                        </field>
+                    </group>
                 </xpath>
             </field>
         </record>

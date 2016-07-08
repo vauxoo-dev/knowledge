@@ -98,6 +98,24 @@ class document_page(models.Model):
         readonly=True
     )
 
+    revision = fields.Integer(
+        string='Revision number',
+        compute='_get_revision',
+        readonly=True)
+
+    document_type = fields.Selection(
+        string='Document type',
+        selection=[('internal', 'Internal'),
+                   ('external', 'External')],
+        default='internal')
+
+    def _get_revision(self):
+        for page in self:
+            revision = []
+            [revision.append(history.id) for history in page.history_ids
+             if history.state == 'approved']
+            page.revision = len(revision)
+
     def _get_page_index(self, page, link=True):
         index = []
         for subpage in page.child_ids:

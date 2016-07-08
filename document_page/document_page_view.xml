@@ -45,37 +45,43 @@
             <field name="model">document.page</field>
             <field name="arch" type="xml">
                 <form string="Document Page">
-                    <sheet>
-                        <field name="type" invisible="1"/>
-                        <h1><field name="name" placeholder="Name"/></h1>
+                    <field name="type" invisible="1"/>
+                    <h1><field name="name" placeholder="Name"/></h1>
+                    <group>
                         <group>
-                            <group>
-                                <field name="parent_id"
-                                       string="Category"
-                                       context="{'default_type':'category'}"/>
-                            </group>
-                            <group>
-                                <field name="write_uid"
-                                       groups="base.group_no_one"/>
-                                <field name="write_date"
-                                       groups="base.group_no_one"/>
-                                <field name="menu_id"
-                                       groups="base.group_no_one"/>
-                            </group>
+                            <field name="parent_id"
+                                   string="Category"
+                                   context="{'default_type':'category'}"/>
+                            <field name="revision" />
                         </group>
-                        <separator string="Content" class="oe_edit_only" />
-                        <field name="content"
-                               placeholder="e.g. Once upon a time..."
-                               class="oe_edit_only"
-                               widget="html" />
-                        <separator string="Last Content" />
+                        <group>
+                             <field name="document_type"
+                                context="{'default_type':'internal'}"/>
+                        </group>
+                        <group>
+                            <field name="write_uid"
+                                   groups="base.group_no_one"/>
+                            <field name="write_date"
+                                   groups="base.group_no_one"/>
+                            <field name="menu_id"
+                                   groups="base.group_no_one"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Body">
+                            <separator string="Content"/>
+                            <field name="content"
+                                placeholder="e.g. Once upon a time..."
+                                widget="html" />
+                        </page>
+                    </notebook>
+                    <separator string="Last Content" />
                         <div class="oe_document_page">
                             <field name="display_content"
-                                   widget="html"
-                                   class="oe_view_only"
-                                   options='{"safe": True}' />
+                                widget="html"
+                                class="oe_view_only"
+                                options='{"safe": True}' />
                         </div>
-                    </sheet>
                     <div class="oe_chatter">
                         <field name="message_follower_ids" widget="mail_followers"/>
                         <field name="message_ids" widget="mail_thread"/>
