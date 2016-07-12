@@ -286,9 +286,8 @@ class document_page_approval(models.Model):
 
     def _compute_revision(self):
         for page in self:
-            revision = []
-            [revision.append(history.id) for history in page.history_ids
-             if history.state == 'approved']
+            revision = page.history_ids.filtered(
+                lambda a: a.state == 'approved')
             page.revision = len(revision)
 
     display_content = fields.Text(
