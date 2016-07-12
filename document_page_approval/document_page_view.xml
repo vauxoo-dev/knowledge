@@ -34,15 +34,20 @@
             <field name="inherit_id"
                    ref="document_page.view_wiki_form" />
             <field name="arch" type="xml">
-                <field name="display_content"
-                       position="before">
-                    <group class="oe_read_only">
-                        <field name="approved_date" />
-                        <field name="approved_uid" />
-                    </group>
-                </field>
+                <xpath expr="//field[@name='document_type']" position="after">
+                    <field name="revision"/>
+                </xpath>
+                <xpath expr="//page[@string='Body']" position="after">
+                     <page string="Approval information">
+                        <group colspan="2">
+                            <field name="approved_date"/>
+                            <field name="approved_uid"/>
+                        </group>
+                    </page>
+                </xpath>
                 <xpath expr="//field[@name='name']" position="before">
                     <div class="oe_right">
+                        <button name="%(document_page.action_related_page_history)d" type='action' string='Page History'/>
                         <field name="history_state" class="oe_inline" widget="kanban_state_selection" readonly="1"/>
                     </div>
                 </xpath>
@@ -101,6 +106,7 @@
             <field name="inherit_id" ref="document_page.view_wiki_tree"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='name']" position="after">
+                    <field name="revision"/>
                     <field name="history_approved"/>
                 </xpath>
             </field>

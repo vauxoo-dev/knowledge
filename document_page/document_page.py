@@ -98,6 +98,12 @@ class document_page(models.Model):
         readonly=True
     )
 
+    document_type = fields.Selection(
+        string='Document type',
+        selection=[('internal', 'Internal'),
+                   ('external', 'External')],
+        default='internal')
+
     def _get_page_index(self, page, link=True):
         index = []
         for subpage in page.child_ids:
