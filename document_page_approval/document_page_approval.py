@@ -25,7 +25,7 @@ from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT
 from openerp import models, fields, SUPERUSER_ID, api
 
 
-class document_page_history_wkfl(models.Model):
+class DocumentPageHistoryWkfl(models.Model):
     _inherit = 'document.page.history'
 
     def page_approval_draft(self, cr, uid, ids, context=None):
@@ -284,7 +284,7 @@ class document_page_approval(models.Model):
             return [('id', 'in', res)]
         return [('id', 'not in', res)]
 
-    def _get_revision(self):
+    def _compute_revision(self):
         for page in self:
             revision = []
             [revision.append(history.id) for history in page.history_ids
@@ -336,5 +336,5 @@ class document_page_approval(models.Model):
 
     revision = fields.Integer(
         string='Revision number',
-        compute='_get_revision',
+        compute='_compute_revision',
         readonly=True)

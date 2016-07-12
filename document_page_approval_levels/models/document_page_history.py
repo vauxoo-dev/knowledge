@@ -21,10 +21,10 @@ class DocumentPageHistory(models.Model):
         help='Users and state in items that need partial approbation in '
         'this history')
 
-    to_approve_ok = fields.Boolean(compute='_get_approver_ok')
+    to_approve_ok = fields.Boolean(compute='_compute_approver')
 
     @api.depends('approver_item_ids.approved')
-    def _get_approver_ok(self):
+    def _compute_approver(self):
         """Return True if all Approver Items are approved."""
         for history in self:
             if all([item.approved for item in history.approver_item_ids]):
