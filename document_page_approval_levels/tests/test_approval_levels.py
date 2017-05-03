@@ -9,7 +9,7 @@
 ############################################################################
 from openerp.tests.common import TransactionCase
 from openerp.exceptions\
-    import Warning as UserError, ValidationError, AccessError
+    import Warning as UserError, ValidationError
 
 
 class TestDocumentApprovalLevelState(TransactionCase):
@@ -157,10 +157,7 @@ class TestDocumentApprovalLevelState(TransactionCase):
             'approver_item_ids': [(0, 0, {
                 'user_id': self.document_approver.id,
             })]})
-        with self.assertRaisesRegexp(
-                AccessError,
-                'Sorry, you are not allowed to delete this document.'):
-            page.sudo(self.document_user.id).unlink()
+        page.sudo(self.document_user.id).unlink()
 
     def test_70_changed_content_in_history(self):
         """Test that update content in history"""
