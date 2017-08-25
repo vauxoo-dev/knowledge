@@ -33,8 +33,18 @@
             <field name="perm_write" eval="1"/>
             <field name="perm_create" eval="1"/>
             <field name="perm_unlink" eval="0"/>
-            <field name="domain_force">[(1, '!=', 1)]</field>
+            <field name="domain_force">[(1, '=', 1)]</field>
        </record>
 
+       <record id="group_document_user_rule" model="ir.rule">
+            <field name="name">Can only see documents</field>
+            <field name="model_id" ref="document_page.model_document_page"/>
+            <field name="groups" eval="[(4, ref('base.group_document_user'))]" />
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+       </record>
     </data>
 </openerp>
