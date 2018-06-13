@@ -15,6 +15,6 @@
     "qweb": [
         'static/src/xml/sidebar.xml',
     ],
-    "installable": True,
+    "installable": False,
     "auto_install": False,
 }
