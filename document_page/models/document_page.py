@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -53,13 +52,6 @@ class DocumentPage(models.Model):
         "Template",
         help="Template that will be used as a content template "
              "for all new page of this category.",
-    )
-
-    # deprecated - should be removed on 11.0
-    # left here because some modules might still need it
-    display_content = fields.Text(
-        string='Displayed Content',
-        compute='_compute_display_content'
     )
 
     history_head = fields.Many2one(
@@ -117,14 +109,7 @@ class DocumentPage(models.Model):
         return r
 
     @api.multi
-    @api.depends('content')
-    def _compute_display_content(self):
-        # @deprecated, simply use content
-        for rec in self:
-            rec.display_content = rec.content
-
-    @api.multi
-    @api.depends('history_head', 'history_ids')
+    @api.depends('history_head')
     def _compute_content(self):
         for rec in self:
             if rec.type == 'category':
