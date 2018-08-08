@@ -7,11 +7,11 @@
 # OCA Transbot <transbot@odoo-community.org>, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.0\n"
+"Project-Id-Version: Odoo Server 11.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-17 00:50+0000\n"
-"PO-Revision-Date: 2018-04-17 00:50+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2018\n"
+"POT-Creation-Date: 2018-08-08 17:26+0000\n"
+"PO-Revision-Date: 2018-08-08 17:26+0000\n"
+"Last-Translator: <>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -49,7 +49,7 @@ msgstr "Categoría"
 #. module: document_page
 #: model:ir.ui.view,arch_db:document_page.wiki_history_form
 msgid "Changes"
-msgstr ""
+msgstr "Cambios"
 
 #. module: document_page
 #: model:ir.model.fields,field_description:document_page.field_document_page_child_ids
@@ -102,7 +102,7 @@ msgstr "Creado el"
 #. module: document_page
 #: model:ir.model.fields,help:document_page.field_document_page_summary
 msgid "Describe the changes made"
-msgstr ""
+msgstr "Describe los cambios realizados"
 
 #. module: document_page
 #: model:ir.model.fields,field_description:document_page.field_document_page_history_diff
@@ -146,7 +146,7 @@ msgstr "Página del documento"
 #: model:ir.ui.view,arch_db:document_page.view_wiki_history_filter
 #: model:ir.ui.view,arch_db:document_page.wiki_history_form
 msgid "Document Page History"
-msgstr "Historial de página del documento"
+msgstr "Historial del documento"
 
 #. module: document_page
 #: model:ir.ui.view,arch_db:document_page.view_category_form
@@ -156,7 +156,7 @@ msgstr "Documentos"
 #. module: document_page
 #: model:res.groups,name:document_page.group_document_editor
 msgid "Editor"
-msgstr ""
+msgstr "Editor"
 
 #. module: document_page
 #: model:ir.ui.view,arch_db:document_page.view_wiki_filter
@@ -167,7 +167,7 @@ msgstr "Agrupar por..."
 #. module: document_page
 #: model:ir.model.fields,field_description:document_page.field_document_page_history_head
 msgid "HEAD"
-msgstr ""
+msgstr "HEAD"
 
 #. module: document_page
 #: model:ir.model.fields,field_description:document_page.field_document_page_history_ids
@@ -186,13 +186,13 @@ msgstr "ID"
 #. module: document_page
 #: model:ir.model.fields,field_description:document_page.field_document_page_content_date
 msgid "Last Contribution Date"
-msgstr ""
+msgstr "Fecha de la última contribución"
 
 #. module: document_page
 #: model:ir.model.fields,field_description:document_page.field_document_page_content_uid
 #: model:ir.ui.view,arch_db:document_page.view_wiki_filter
 msgid "Last Contributor"
-msgstr ""
+msgstr "Último Contribudor"
 
 #. module: document_page
 #: model:ir.model.fields,field_description:document_page.field_document_page___last_update
@@ -221,7 +221,7 @@ msgstr "Última actualización el"
 #. module: document_page
 #: model:res.groups,name:document_page.group_document_manager
 msgid "Manager"
-msgstr ""
+msgstr "Responsable"
 
 #. module: document_page
 #: model:ir.model.fields,field_description:document_page.field_document_page_menu_id
@@ -286,7 +286,7 @@ msgstr "Menú superior"
 #: code:addons/document_page/wizard/document_page_show_diff.py:28
 #, python-format
 msgid "Select one or maximum two history revisions!"
-msgstr ""
+msgstr "¡Seleccione una o máximo dos historias de revisiones!"
 
 #. module: document_page
 #: model:ir.model.fields,field_description:document_page.field_document_page_history_summary
@@ -302,16 +302,14 @@ msgstr "Plantilla"
 
 #. module: document_page
 #: model:ir.model.fields,help:document_page.field_document_page_template
-msgid ""
-"Template that will be used as a content template for all new page of this "
-"category."
-msgstr ""
+msgid "Template that will be used as a content template for all new page of this category."
+msgstr "Plantilla a usar como plantilla de contenido para todas las nuevas páginas de esta categoria."
 
 #. module: document_page
 #: code:addons/document_page/models/document_page_history.py:49
 #, python-format
 msgid "There are no changes in revisions."
-msgstr ""
+msgstr "No hay cambios en Revisión."
 
 #. module: document_page
 #: model:ir.model.fields,field_description:document_page.field_document_page_name
@@ -350,6 +348,3 @@ msgstr "o"
 #: model:ir.model,name:document_page.model_wizard_document_page_history_show_diff
 msgid "wizard.document.page.history.show_diff"
 msgstr "wizard.document.page.history.show_diff"
-
-#~ msgid "Displayed Content"
-#~ msgstr "Contenido mostrado"
